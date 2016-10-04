@@ -1,0 +1,17 @@
+{
+  "name": "gaming101",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jamey McAuliffe <jpmcauliffe15@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/JameyMcAuliffe/gaming101",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
