@@ -89,7 +89,6 @@ const setResult = game => {
   return game
 }
 
-
 const winner = b => {
   // Rows
   if (b[0][0] && b[0][0] === b[0][1] && b[0][1] === b[0][2]) {
@@ -126,13 +125,20 @@ const winner = b => {
     return b[0][2]
   }
 
-  // Tie or In-Progress
-  else {
-    return null
+  // Tie
+  if (!movesRemaining(b)) {
+    return 'Tie'
   }
+
+  // In-Progress
+  return null
 }
 
+const movesRemaining = board => {
+  const POSSIBLE_MOVES = 9
+  const movesMade = flatten(board).join('').length
 
+  return POSSIBLE_MOVES - movesMade
+}
 
-
-
+const flatten = array => array.reduce((a,b) => a.concat(b))
