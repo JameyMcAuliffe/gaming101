@@ -45,6 +45,12 @@ io.on('connect', socket => {
 		console.error(err)
 	})
 
+	socket.on('make move', move => {
+		socket.game.board[move.row][move.col] = 'X'
+		socket.game.markModified('board')
+		socket.game.save().then(g => socket.emit('move made', g))
+
+	})
 
 	console.log(`Socket connected: ${socket.id}`)
 	socket.on('disconnect', () => console.log('Socket disconnected'))
